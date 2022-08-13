@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: servicio-cambios
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+
+  datasource:
+    url: jdbc:mysql://localhost/ventas?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: cjavaperu
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 8095
+servicio-compras:
+  ribbon:
+    listOfServers: localhost:8001,localhost:9001
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+            defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost     
+    
+
+
