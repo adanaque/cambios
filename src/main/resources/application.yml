@@ -1,6 +1,6 @@
 spring:
   application:
-    name: servicio-cambios
+    name: cambios-socios
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
@@ -10,15 +10,15 @@ spring:
         globally_quoted_identifiers: true
 
   datasource:
-    url: jdbc:mysql://localhost/ventas?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost/cambios?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
-    password: cjavaperu
+    password: cjava
     driver-class-name: com.mysql.cj.jdbc.Driver
 server:
   port: 8095
-servicio-compras:
+man-socios:
   ribbon:
-    listOfServers: localhost:8001,localhost:9001
+    listOfServers: localhost:8092,localhost:8093,localhost:8094
 eureka:
   client:
     register-with-eureka: true
