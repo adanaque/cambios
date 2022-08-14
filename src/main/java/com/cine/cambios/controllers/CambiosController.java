@@ -26,13 +26,13 @@ public class CambiosController {
 	}
 	
 	@GetMapping("/estado/{dni}/{estado}")
-	public Response cambiarEstado(@PathVariable String codCliente, @PathVariable String status) {
-		 ResponseEntity responseEntity= cambioService.cambiarEstado(codCliente,status);
+	public Response cambiarEstado(@PathVariable String dni, @PathVariable String estado) {
+		 ResponseEntity responseEntity= cambioService.cambiarEstado(dni,estado);
 		 if(responseEntity.getStatusCode().is2xxSuccessful()){
 			 Cambio cambio=new Cambio();
-			 cambio.setEstado(status);
+			 cambio.setEstado(estado);
 			 cambio.setFechaCambio(new Date());
-			 cambio.setDni(codCliente);
+			 cambio.setDni(dni);
 			 return Response.ok().entity(cambioService.save(cambio)).build();
 		 }
 		return Response.noContent().entity("Error el usuario no fue actualizado ").build();
